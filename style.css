@@ -295,3 +295,40 @@ a.btn-feedback:hover { background:#9575cd; color:#fff; }
   background: linear-gradient(90deg, #f0f4ff, #f8fafc, #f0f4ff);
   border-radius: 2px; opacity:.6;
 }
+/* === quick-slots === */
+#quick-slot-1, #quick-slot-2 {
+  margin: 16px auto;
+  max-width: 1100px;
+  padding: 0 16px;
+}
+
+.qbar {
+  background: #f8fafc;
+  border: 1px solid #e7ebf3;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(15,23,42,.04);
+}
+
+.qbadge {
+  background: #eef5ff;
+  color: #284e9e;
+  border: 1px solid #dbe7ff;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.qlink {
+  color: #3b71ca;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.qlink:hover {
+  text-decoration: underline;
+}
