@@ -1,7 +1,7 @@
 // assets/slots.js
 // --- Basit içerik konfigürasyonu ---
 const SLOT1 = [
-  { type: 'badge', text: 'Hızlı Menü' },
+  { type: 'badge', text: 'Test Menü' },
   { type: 'link', href: '#hizmetler', text: 'Hizmetler' },
   { type: 'link', href: '#ucretler',  text: 'Ücretler' },
   { type: 'link', href: '#sss',       text: 'SSS' },
