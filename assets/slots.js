@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded',()=>{
       behavior: 'smooth'
     });
   }
-
   // Tüm #ankor linklerine uygula
   document.addEventListener('click', function (e) {
     const a = e.target.closest('a[href^="#"]');
@@ -75,19 +74,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     scrollToCenter(hash);         // bizim merkezleme kaydırmamız
   }, { passive: false });
 })();
-// === FAQ: aynı anda sadece 1 soru açık kalsın ===
-(function () {
-  const faqWrap = document.getElementById('faq-accordion');
-  if (!faqWrap) return;
-
-  faqWrap.addEventListener('toggle', function (e) {
-    const opened = e.target;
-    if (opened.open) {
-      faqWrap.querySelectorAll('details.faq-item[open]').forEach(item => {
-        if (item !== opened) item.open = false; // diğerlerini kapat
-      });
-    }
-  });
 })();
 // === SSS: aynı anda sadece 1 soru açık kalsın ===
 (function () {
