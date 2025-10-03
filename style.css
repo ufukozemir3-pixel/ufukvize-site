@@ -332,3 +332,155 @@ a.btn-feedback:hover { background:#9575cd; color:#fff; }
 .qlink:hover {
   text-decoration: underline;
 }
+/* === v31 MODERN UPLIFT (non-breaking) ========================== */
+/* 1) Tema değişkenleri */
+:root{
+  --bg: #f6f8fb;
+  --bg-soft: #f9fbff;
+  --surface: #ffffff;
+  --text: #1b2733;
+  --muted: #55606d;
+  --accent: #0f4cff;            /* mevcut maviye yakın, premium ton */
+  --accent-2: #60a5fa;
+  --ring: rgba(15,76,255,.15);
+  --shadow: 0 8px 30px rgba(2,24,58,.06);
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+}
+
+/* 2) Genel arkaplan ve tipografi */
+html, body{
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #eef4ff 0%, transparent 60%),
+    radial-gradient(1000px 500px at 100% 0%, #ecf5ff 0%, transparent 55%),
+    var(--bg);
+  color: var(--text);
+}
+body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Başlıkların ritmi (var olanlara bindirme) */
+h1{ font-weight: 800; letter-spacing: -.01em; }
+h2,h3{ font-weight: 700; letter-spacing: -.005em; }
+.kicker, .subheading-big{ color: var(--muted); }
+
+/* 3) Konteyner ve bölümler */
+.container.content{ max-width: 1100px; }
+.section{ padding: clamp(42px, 6vw, 72px) 0; }
+.section + .section{ border-top: 1px solid rgba(2,24,58,.06); }
+
+/* 4) Navbar cam/blur + scroll gölge */
+.nav.nav-flags{
+  backdrop-filter: saturate(140%) blur(10px);
+  background: rgba(255,255,255,.75) !important;
+  border-bottom: 1px solid rgba(2,24,58,.06);
+}
+.nav.nav-flags.is-scrolled{
+  box-shadow: var(--shadow);
+}
+
+/* (küçük JS’niz varsa .is-scrolled sınıfını body scroll’da ekliyor olabilir;
+   yoksa güvenli: sadece sabit blur/gölge görünür) */
+
+/* 5) Kart/surface (genel amaçlı) */
+.card, .surface{
+  background: var(--surface);
+  border: 1px solid rgba(2,24,58,.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.badge, .qbadge{
+  background: #f2f6ff;
+  color: var(--accent);
+  border: 1px solid rgba(15,76,255,.15);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-weight: 600;
+}
+
+/* 6) Butonlar – mevcut .btn ve .btn-primary üstüne bindirme */
+.btn{
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 700;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 6px 16px rgba(15,76,255,.10);
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn:active{ transform: translateY(0); }
+
+.btn-primary{
+  background: linear-gradient(135deg, var(--accent) 0%, #1d4ed8 100%) !important;
+  color: #fff !important;
+  border: 0 !important;
+}
+.btn-primary:hover{
+  box-shadow: 0 10px 24px rgba(15,76,255,.22);
+}
+
+/* İkincil buton */
+.btn-secondary{
+  background: #eef3ff;
+  color: #0f3fbf;
+  border: 1px solid rgba(15,76,255,.22);
+}
+.btn-secondary:hover{
+  background: #e7eeff;
+  box-shadow: 0 8px 20px rgba(15,76,255,.12);
+}
+
+/* 7) Hızlı menü (quick-slot) görsel iyileştirme */
+#quick-slot-1{
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin: 14px 0 8px;
+}
+#quick-slot-1 a.qlink{
+  background: #fff;
+  border: 1px solid rgba(2,24,58,.08);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: var(--text);
+  font-weight: 600;
+  transition: background .2s, box-shadow .2s, transform .15s;
+}
+#quick-slot-1 a.qlink:hover{
+  background: #f8fbff;
+  border-color: var(--ring);
+  box-shadow: 0 6px 16px rgba(2,24,58,.06);
+  transform: translateY(-1px);
+}
+
+/* 8) Rozet şeridi ( “✓ Yüzlerce dosya deneyimi” vs.) */
+.pill{
+  background: #fff;
+  border: 1px solid rgba(2,24,58,.08);
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: var(--muted);
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(2,24,58,.04);
+}
+.pill:hover{
+  border-color: var(--ring);
+  box-shadow: 0 8px 20px rgba(2,24,58,.08);
+}
+
+/* 9) Yumuşak ayrımcı çizgi */
+.hr-soft{
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(2,24,58,.08), transparent);
+  border: 0; margin: 32px 0;
+}
+
+/* 10) Footer küçücük dokunuş */
+.footer{ border-top: 1px solid rgba(2,24,58,.08); }
+.footer .container{ opacity: .92; }
+
+/* 11) Küçük ekran ince ayarları */
+@media (max-width: 768px){
+  .btn{ padding: 12px 14px; }
+  .container.content{ padding: 0 16px; }
+}
