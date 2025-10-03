@@ -36,27 +36,42 @@ document.addEventListener('DOMContentLoaded',()=>{
     s1.appendChild(renderBar(SLOT1));
   }
 });
-/* --- akıllı kaydırma: sabit menü yüksekliği kadar ofsetle --- */
+/* --- akıllı kaydırma: hedefi ekranda ortalayarak getir --- */
 (function () {
+  // Üstteki sabit navbar:
   const nav = document.querySelector('.nav.nav-flags') || document.querySelector('nav');
-  if (!nav) return;
 
-  const extra = 12; // minik emniyet payı
-  const offset = () => nav.getBoundingClientRect().height + extra;
+  // Navbar yüksekliği + minik emniyet payı
+  const navH = () => (nav ? nav.getBoundingClientRect().height : 0);
 
-  function scrollToWithOffset(hash) {
+  function scrollToCenter(hash) {
     const el = document.querySelector(hash);
     if (!el) return;
-    const y = window.scrollY + el.getBoundingClientRect().top - offset();
-    window.scrollTo({ top: y, behavior: 'smooth' });
+
+    const r = el.getBoundingClientRect();
+    // Hedefin orta noktası ekranın orta noktasına gelsin:
+    const middleGap = (window.innerHeight - r.height) / 2;
+
+    // Üstte sabit menü olduğu için ortalamayı biraz yukarı düzeltelim
+    const compensate = navH() / 2;
+
+    const targetY = window.scrollY + r.top - middleGap - compensate;
+
+    window.scrollTo({
+      top: Math.max(0, targetY),
+      behavior: 'smooth'
+    });
   }
 
+  // Tüm #ankor linklerine uygula
   document.addEventListener('click', function (e) {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
+
     const hash = a.getAttribute('href');
     if (!document.querySelector(hash)) return;
-    e.preventDefault();               // varsayılan anchor kaydırmayı iptal et
-    scrollToWithOffset(hash);         // kendi ofsetli kaydırmamız
+
+    e.preventDefault();           // varsayılan kaydırmayı engelle
+    scrollToCenter(hash);         // bizim merkezleme kaydırmamız
   }, { passive: false });
 })();
