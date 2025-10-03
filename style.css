@@ -484,3 +484,4 @@ h2,h3{ font-weight: 700; letter-spacing: -.005em; }
   .btn{ padding: 12px 14px; }
   .container.content{ padding: 0 16px; }
 }
+html { scroll-behavior: smooth; }
