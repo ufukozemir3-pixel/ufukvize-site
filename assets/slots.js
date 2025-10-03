@@ -89,3 +89,18 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
   });
 })();
+// === SSS: aynı anda sadece 1 soru açık kalsın ===
+(function () {
+  const faqs = document.querySelectorAll('#faq-accordion details.faq-item');
+  if (!faqs.length) return;
+
+  faqs.forEach((d) => {
+    d.addEventListener('toggle', function () {
+      if (this.open) {
+        faqs.forEach((other) => {
+          if (other !== this) other.open = false; // diğerlerini kapat
+        });
+      }
+    });
+  });
+})();
