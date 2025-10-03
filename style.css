@@ -499,3 +499,57 @@ section[id],
 #iletisim {
   scroll-margin-top: var(--anchor-offset);
 }
+/* === FAQ / Akordeon === */
+.faq-section { padding: 48px 0; }
+.faq-section h2 { margin-bottom: 16px; }
+
+.faq-accordion {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1px solid rgba(0,0,0,.08);
+  background: #fff;
+  border-radius: 12px;
+  margin: 12px 0;
+  overflow: hidden;
+  transition: box-shadow .2s ease;
+}
+
+.faq-item[open] {
+  box-shadow: 0 6px 20px rgba(2, 28, 69, .06);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 20px;
+  font-weight: 600;
+  color: #0f2746;
+  position: relative;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::marker { content: ""; }
+
+.faq-item summary::after {
+  content: "▾";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  opacity: .6;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: translateY(-50%) rotate(180deg);
+  opacity: .9;
+}
+
+.faq-a {
+  padding: 0 20px 16px 20px;
+  color: #2c3e50;
+  line-height: 1.6;
+}
