@@ -485,3 +485,17 @@ h2,h3{ font-weight: 700; letter-spacing: -.005em; }
   .container.content{ padding: 0 16px; }
 }
 html { scroll-behavior: smooth; }
+:root{
+  /* sabit menünün toplam yüksekliği + küçük pay */
+  --anchor-offset: 112px; /* 96–128px arası deneyebilirsin */
+}
+
+/* Başlığı olan ve menüden atlanılan tüm bloklar */
+section[id],
+.service-block,      /* schengen / ingiltere / amerika blokların */
+.rally-section,      /* ana “Hizmetler” bölümü kapsayıcısı        */
+#hizmetler,          /* varsa düz id ile kullanılanlar             */
+#ucretler,
+#iletisim {
+  scroll-margin-top: var(--anchor-offset);
+}
