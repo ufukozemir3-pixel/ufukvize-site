@@ -220,5 +220,17 @@
 </footer>
 <a aria-label="WhatsApp" class="fab" href="https://wa.me/905457325234">✆</a>
 <script src="assets/slots.js?v=2" defer></script>
+<script>
+  (function(){
+    const nav = document.querySelector('.nav.nav-flags');
+    if(!nav) return;
+    const onScroll = () => {
+      if(window.scrollY > 8) nav.classList.add('is-scrolled');
+      else nav.classList.remove('is-scrolled');
+    };
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  })();
+</script>
+
 </body>
 </html>
