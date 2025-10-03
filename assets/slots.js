@@ -36,3 +36,27 @@ document.addEventListener('DOMContentLoaded',()=>{
     s1.appendChild(renderBar(SLOT1));
   }
 });
+/* --- akıllı kaydırma: sabit menü yüksekliği kadar ofsetle --- */
+(function () {
+  const nav = document.querySelector('.nav.nav-flags') || document.querySelector('nav');
+  if (!nav) return;
+
+  const extra = 12; // minik emniyet payı
+  const offset = () => nav.getBoundingClientRect().height + extra;
+
+  function scrollToWithOffset(hash) {
+    const el = document.querySelector(hash);
+    if (!el) return;
+    const y = window.scrollY + el.getBoundingClientRect().top - offset();
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const hash = a.getAttribute('href');
+    if (!document.querySelector(hash)) return;
+    e.preventDefault();               // varsayılan anchor kaydırmayı iptal et
+    scrollToWithOffset(hash);         // kendi ofsetli kaydırmamız
+  }, { passive: false });
+})();
