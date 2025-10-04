@@ -777,3 +777,61 @@ html { scroll-behavior: smooth; }
   .wapp-btn .wa-label { display: none; } /* butonda sadece ikon kalsın */
   .wapp-btn { padding: 10px; border-radius: 12px; }
 }
+/* ==== NAV (MOBİL) — marka adı daima görünsün, buton taşmasın ==== */
+@media (max-width: 768px){
+  .nav .inner{
+    display:flex;
+    flex-wrap:wrap;          /* tek satıra sığmazsa ikinci satıra iner */
+    align-items:center;
+    justify-content:space-between;
+    gap:10px 12px;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex: 1 1 auto;          /* soldaki bölge esneyebilir */
+    min-width: 0;
+  }
+
+  .brand img{                /* logo boyutunu biraz küçült */
+    height:40px;
+  }
+
+  .brand-text{
+    display:inline !important;    /* gizlenmişse bile görünür kıl */
+    font-weight:800;
+    line-height:1.05;
+    font-size: clamp(16px, 4.5vw, 20px); /* ekrana göre ölçekli yazı */
+    white-space:nowrap;              /* taşmayı azaltır */
+    overflow:hidden;                 /* aşırıyı keser */
+    text-overflow:ellipsis;
+  }
+
+  .social-links{               /* IG / IN simgeleri */
+    order: 2;
+    margin-left:auto;
+    gap:10px;
+  }
+
+  .wapp-btn{                   /* WhatsApp butonu */
+    order: 3;                  /* ikinci satıra geçebilir */
+    margin-left:auto;
+  }
+}
+
+/* Çok dar telefonlar için: butonu tam genişlikte aşağı al */
+@media (max-width: 420px){
+  .wapp-btn{
+    flex: 1 1 100%;
+    justify-content:center;
+    text-align:center;
+  }
+  .brand img{
+    height:36px;
+  }
+  .brand-text{
+    font-size: clamp(15px, 4.2vw, 18px);
+  }
+}
