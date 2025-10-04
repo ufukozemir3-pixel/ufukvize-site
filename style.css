@@ -908,3 +908,12 @@ html { scroll-behavior: smooth; }
 
 /* zaten yoksa genel yumuşak kaydırma */
 html { scroll-behavior: smooth; }
+/* Bayrak rayı ilk yüklemede hafif gizli dursun, kayınca gelsin (tercihe bağlı) */
+.flag-rail { opacity: .0; pointer-events: none; transition: opacity .18s ease; }
+.flag-rail.is-visible { opacity: 1; pointer-events: auto; }
+
+/* Aktif bayrak vurgusu */
+.flag-btn.is-active {
+  box-shadow: 0 0 0 3px rgba(14,165,233,.35), 0 6px 16px rgba(2,6,23,.18);
+  transform: translateY(-1px);
+}
