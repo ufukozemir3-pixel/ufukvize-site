@@ -899,3 +899,12 @@ html { scroll-behavior: smooth; }
 }
 
 html { scroll-behavior: smooth; }
+/* style.css sonuna ekle */
+#schengen,
+#ingiltere,
+#amerika {
+  scroll-margin-top: 88px; /* sabit navbar + nefes payı */
+}
+
+/* zaten yoksa genel yumuşak kaydırma */
+html { scroll-behavior: smooth; }
