@@ -669,3 +669,63 @@ details summary {
 
 /* Sayfalar arası yumuşak kaydırma */
 html { scroll-behavior: smooth; }
+/* ====== MOBİL DÜZELTMELER (<= 768px) ====== */
+@media (max-width: 768px) {
+
+  .container,
+  #quick-slot-1,
+  #quick-slot-2,
+  .section-card {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero h1,
+  h1 {
+    font-size: clamp(26px, 6vw, 34px);
+    line-height: 1.22;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-wrap: balance;
+    margin-bottom: 10px;
+  }
+
+  .hero p,
+  .lead,
+  p {
+    font-size: clamp(15px, 2.2vw, 17px);
+    line-height: 1.55;
+  }
+
+  .cta,
+  .cta-row,
+  .btn-group {
+    display: grid;
+    gap: 10px;
+  }
+  .btn,
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .qbar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .qbadge {
+    margin-bottom: 4px;
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero h1, h1 { font-size: 24px; }
+  .hero p, p { font-size: 14px; }
+}
