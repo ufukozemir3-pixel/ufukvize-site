@@ -429,6 +429,37 @@
     });
   })();
 </script>
+<script>
+  // Rayı yalnızca biraz kaydıktan sonra göster (opsiyonel)
+  const rail = document.querySelector('.flag-rail');
+  if (rail) {
+    const reveal = () => rail.classList.toggle('is-visible', window.scrollY > 160);
+    reveal(); window.addEventListener('scroll', reveal, { passive: true });
+  }
+
+  // Aktif bölümü vurgula
+  const targets = ['schengen','ingiltere','amerika'];
+  const sections = targets
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const buttons = targets
+    .map(id => document.querySelector(`.flag-btn[data-target="${id}"]`))
+    .filter(Boolean);
+
+  if (sections.length && buttons.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const id = e.target.id;
+        buttons.forEach(b => b.classList.toggle('is-active',
+          b.dataset.target === id
+        ));
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(s => io.observe(s));
+  }
+</script>
 
 </body>
 </html>
