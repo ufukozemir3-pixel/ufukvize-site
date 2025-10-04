@@ -729,3 +729,51 @@ html { scroll-behavior: smooth; }
   .hero h1, h1 { font-size: 24px; }
   .hero p, p { font-size: 14px; }
 }
+/* ==== ÜST BAR (NAV) - MOBİL DÜZELTMELER ==== */
+@media (max-width: 768px) {
+  .nav.inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;   /* satır atlamayı aktif et */
+    gap: 10px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;   /* marka yazısı yer kazansın */
+    min-width: 0;
+  }
+  .brand img {
+    width: 44px;
+    height: auto;
+  }
+  .brand-text {
+    font-size: clamp(16px, 4.5vw, 22px);
+    line-height: 1.1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .wapp-btn {
+    margin-left: auto;
+    position: static !important;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .wapp-btn {
+    order: 2;             /* alt satıra indir */
+    width: 100%;          /* tam genişlik yap */
+    justify-content: center;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-text { display: none; } /* çok dar ekranda marka yazısını gizle */
+  .wapp-btn .wa-label { display: none; } /* butonda sadece ikon kalsın */
+  .wapp-btn { padding: 10px; border-radius: 12px; }
+}
