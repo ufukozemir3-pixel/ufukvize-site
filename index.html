@@ -405,6 +405,30 @@
     </a>
   </nav>
 </div>
+<script>
+  (function(){
+    const fab = document.querySelector('.flag-fab');
+    const btn = document.getElementById('flagFabBtn');
+    const menu = document.getElementById('flagFabMenu');
+
+    if(!fab || !btn || !menu) return;
+
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      const open = fab.classList.toggle('flag-fab--open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+
+    document.addEventListener('click', function(e){
+      if (!fab.contains(e.target)){
+        fab.classList.remove('flag-fab--open');
+        btn.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
