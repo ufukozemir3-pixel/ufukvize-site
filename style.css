@@ -835,3 +835,21 @@ html { scroll-behavior: smooth; }
     font-size: clamp(15px, 4.2vw, 18px);
   }
 }
+/* ==== Marka başlığı mobil optimizasyon ==== */
+@media (max-width: 768px) {
+  .brand-text {
+    font-size: clamp(14px, 4vw, 18px); /* masaüstünde büyük, mobilde küçülür */
+    line-height: 1.1;
+    font-weight: 700;
+    white-space: normal;      /* gerekirse 2 satıra bölünsün */
+    overflow: visible;
+    text-overflow: unset;
+  }
+}
+
+/* Çok dar telefonlar için (ör. iPhone SE, eski Androidler) */
+@media (max-width: 420px) {
+  .brand-text {
+    font-size: 14px;  /* daha da küçült */
+  }
+}
