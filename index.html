@@ -387,6 +387,24 @@
     onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
   })();
 </script>
+<!-- Bayrak kısayolları -->
+<div class="flag-fab" aria-label="Bayrak menüsü">
+  <button class="flag-fab__btn" id="flagFabBtn" aria-expanded="false" aria-haspopup="true" aria-controls="flagFabMenu">
+    <img src="assets/eu_flag_64.png" alt="Bayrak menüsü" />
+  </button>
+
+  <nav class="flag-fab__menu" id="flagFabMenu" aria-hidden="true">
+    <a class="flag" href="#schengen" title="Schengen">
+      <img src="assets/eu_flag_64.png" alt="Schengen" />
+    </a>
+    <a class="flag" href="#ingiltere" title="İngiltere">
+      <img src="assets/uk_flag_64.png" alt="İngiltere" />
+    </a>
+    <a class="flag" href="#amerika" title="Amerika">
+      <img src="assets/us_flag_64.png" alt="Amerika" />
+    </a>
+  </nav>
+</div>
 
 </body>
 </html>
