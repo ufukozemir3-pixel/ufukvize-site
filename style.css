@@ -917,3 +917,13 @@ html { scroll-behavior: smooth; }
   box-shadow: 0 0 0 3px rgba(14,165,233,.35), 0 6px 16px rgba(2,6,23,.18);
   transform: translateY(-1px);
 }
+.fab { 
+  /* mevcut stillerin kalabilir; sadece hatırlatma */
+  display:inline-flex; align-items:center; justify-content:center;
+  width:64px; height:64px; border-radius:9999px;
+  background: linear-gradient(90deg, #2DD36D, #20A35A);
+  color:#fff; box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+.fab .fab-icon { display:block; }
+.fab.fab-call { background: linear-gradient(90deg, #2dd36d, #0bb860); }
